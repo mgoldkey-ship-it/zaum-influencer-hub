@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>FRESH BALANCE — Доставка здорового питания на неделю</title>
+  <style>
+    :root {
+      --bg: #F8FAF7;
+      --card: #FFFFFF;
+      --text: #142218;
+      --muted: #5C6E60;
+      --line: #E4ECE5;
+      --green: #16A34A;
+      --green-dark: #15803D;
+      --green-soft: #DCFCE7;
+      --amber: #EA580C;
+      --amber-soft: #FFEDD5;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      --shadow: 0 12px 32px -8px rgba(20, 34, 24, 0.07);
+      --shadow-lg: 0 20px 45px -12px rgba(22, 163, 74, 0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    body {
+      background: var(--bg);
+      line-height: 1.5;
+      padding-bottom: 84px;
+    }
+
+    /* Demo Top Banner */
+    .demo-bar {
+      background: #142218;
+      color: #ECFDF5;
+      font-size: 13px;
+      padding: 9px 16px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .demo-bar span.badge {
+      background: var(--green);
+      color: #fff;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 99px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(248, 250, 247, 0.9);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      gap: 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+    }
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #22C55E, #15803D);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      box-shadow: 0 6px 16px rgba(22, 163, 74, 0.28);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: var(--green);
+    }
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 12px 22px;
+      border-radius: 99px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .btn-primary {
+      background: var(--green);
+      color: #fff;
+      box-shadow: 0 8px 20px -4px rgba(22, 163, 74, 0.4);
+    }
+    .btn-primary:hover {
+      background: var(--green-dark);
+      transform: translateY(-1px);
+    }
+    .btn-outline {
+      background: #fff;
+      color: var(--text);
+      border: 1.5px solid var(--line);
+    }
+    .btn-outline:hover {
+      border-color: var(--green);
+      color: var(--green);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 42px 0 36px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 32px;
+      align-items: center;
+    }
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green-soft);
+      color: var(--green-dark);
+      padding: 6px 14px;
+      border-radius: 99px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-size: clamp(30px, 4.2vw, 48px);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+      font-weight: 850;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--green);
+    }
+    .hero p {
+      font-size: 17px;
+      color: var(--muted);
+      margin-bottom: 26px;
+      max-width: 540px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      max-width: 520px;
+    }
+    .stat-box {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+    }
+    .stat-num {
+      font-weight: 800;
+      font-size: 19px;
+      color: var(--text);
+    }
+    .stat-label {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* Hero Visual Card */
+    .hero-card {
+      background: linear-gradient(145deg, #FFFFFF 0%, #F0FDF4 100%);
+      border: 1px solid #BBF7D0;
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+    .hero-card-badge {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: #142218;
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 99px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .bowl-preview {
+      width: 100%;
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+    .hero-dish-title {
+      font-weight: 800;
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+    .hero-dish-sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    .macro-pills {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+    .macro-pill {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 8px 6px;
+      text-align: center;
+    }
+    .macro-pill b {
+      display: block;
+      font-size: 15px;
+      color: var(--text);
+    }
+    .macro-pill span {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* Section Headers */
+    section {
+      padding: 36px 0;
+    }
+    .sec-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    .sec-tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--green);
+      margin-bottom: 6px;
+    }
+    .sec-title {
+      font-size: clamp(24px, 3vw, 34px);
+      font-weight: 850;
+      letter-spacing: -0.02em;
+    }
+    .sec-sub {
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 540px;
+    }
+
+    /* Step 1: Smart Calculator */
+    .calc-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+    .calc-group {
+      margin-bottom: 20px;
+    }
+    .calc-label {
+      display: block;
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .seg-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      gap: 8px;
+    }
+    .seg-btn {
+      background: var(--bg);
+      border: 1.5px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 11px 12px;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.15s;
+      text-align: center;
+    }
+    .seg-btn.active {
+      background: var(--green-soft);
+      border-color: var(--green);
+      color: var(--green-dark);
+    }
+    .sliders-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .num-box {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+    }
+    .num-box-top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .num-box-top b {
+      color: var(--text);
+      font-size: 15px;
+    }
+    .num-box input[type="range"] {
+      width: 100%;
+      accent-color: var(--green);
+      cursor: pointer;
+    }
+
+    .calc-result {
+      background: linear-gradient(160deg, #142218 0%, #1E3524 100%);
+      color: #fff;
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .res-badge {
+      display: inline-block;
+      background: rgba(34, 197, 94, 0.22);
+      color: #86EFAC;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 99px;
+      margin-bottom: 10px;
+      width: fit-content;
+    }
+    .res-plan-name {
+      font-size: 26px;
+      font-weight: 850;
+      margin-bottom: 4px;
+    }
+    .res-kcal-note {
+      font-size: 13px;
+      color: #A7F3D0;
+      margin-bottom: 16px;
+    }
+    .res-macros {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+    .res-macro-item {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 10px;
+      text-align: center;
+    }
+    .res-macro-item b {
+      display: block;
+      font-size: 16px;
+      color: #fff;
+    }
+    .res-macro-item span {
+      font-size: 11px;
+      color: #CBD5E1;
+    }
+
+    /* Step 2: Weekly Menu */
+    .plan-tabs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .plan-tab {
+      background: var(--card);
+      border: 2px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+    .plan-tab:hover {
+      border-color: #86EFAC;
+    }
+    .plan-tab.active {
+      border-color: var(--green);
+      background: #F0FDF4;
+      box-shadow: 0 8px 20px -6px rgba(22, 163, 74, 0.2);
+    }
+    .plan-tab-title {
+      font-weight: 800;
+      font-size: 16px;
+      color: var(--text);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .plan-tab-kcal {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-top: 2px;
+    }
+    .plan-tab-desc {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .day-tabs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      margin-bottom: 20px;
+    }
+    .day-btn {
+      flex: 1;
+      min-width: 92px;
+      background: var(--card);
+      border: 1.5px solid var(--line);
+      border-radius: 12px;
+      padding: 10px 12px;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.15s;
+    }
+    .day-btn b {
+      display: block;
+      font-size: 14px;
+      color: var(--text);
+    }
+    .day-btn span {
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .day-btn.active {
+      background: #142218;
+      border-color: #142218;
+    }
+    .day-btn.active b,
+    .day-btn.active span {
+      color: #fff;
+    }
+
+    .day-summary-bar {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 14px 20px;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .day-summary-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .day-summary-left b {
+      font-size: 16px;
+    }
+    .day-totals {
+      display: flex;
+      gap: 16px;
+      font-size: 13px;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+    .day-totals strong {
+      color: var(--text);
+    }
+
+    .meals-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .meal-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s;
+    }
+    .meal-card:hover {
+      transform: translateY(-3px);
+    }
+    .meal-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .meal-slot {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--green-dark);
+      background: var(--green-soft);
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+    .meal-weight {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .meal-illust {
+      height: 115px;
+      background: #F4F8F5;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+    .meal-tag {
+      position: absolute;
+      bottom: 6px;
+      right: 6px;
+      background: rgba(255,255,255,0.92);
+      color: var(--text);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 99px;
+    }
+    .meal-title {
+      font-weight: 800;
+      font-size: 15px;
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+    .meal-ing {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 12px;
+      flex-grow: 1;
+    }
+    .meal-kbju {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4px;
+      background: var(--bg);
+      padding: 8px 6px;
+      border-radius: 10px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .meal-kbju div b {
+      display: block;
+      font-size: 12px;
+      color: var(--text);
+    }
+    .meal-kbju div span {
+      font-size: 10px;
+      color: var(--muted);
+    }
+    .swap-btn {
+      width: 100%;
+      background: transparent;
+      border: 1px dashed #CBD5E1;
+      border-radius: 8px;
+      padding: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .swap-btn:hover {
+      border-color: var(--green);
+      color: var(--green-dark);
+      background: var(--green-soft);
+    }
+
+    /* Step 3: Order & Tariff Calculator */
+    .order-wrap {
+      background: var(--card);
+      border: 1.5px solid #BBF7D0;
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      box-shadow: var(--shadow-lg);
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 32px;
+    }
+    .duration-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .dur-card {
+      border: 1.5px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      cursor: pointer;
+      background: var(--bg);
+      position: relative;
+      transition: all 0.15s;
+    }
+    .dur-card.active {
+      border-color: var(--green);
+      background: #F0FDF4;
+    }
+    .dur-save {
+      position: absolute;
+      top: -9px;
+      right: 8px;
+      background: var(--amber);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 99px;
+    }
+    .dur-days {
+      font-weight: 800;
+      font-size: 15px;
+      margin-bottom: 2px;
+    }
+    .dur-note {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .prefs-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .pref-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      padding: 8px 12px;
+      border-radius: 99px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      user-select: none;
+    }
+    .pref-chip.active {
+      background: #FEF3C7;
+      border-color: #F59E0B;
+      color: #92400E;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .input-field {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1.5px solid var(--line);
+      border-radius: 12px;
+      font-size: 14px;
+      background: var(--bg);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .input-field:focus {
+      border-color: var(--green);
+      background: #fff;
+    }
+
+    .checkout-box {
+      background: #F8FAF7;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .summary-line {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      margin-bottom: 10px;
+      color: var(--muted);
+    }
+    .summary-line b {
+      color: var(--text);
+    }
+    .summary-total {
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+      margin-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .total-price {
+      font-size: 30px;
+      font-weight: 850;
+      color: var(--green-dark);
+    }
+    .old-price {
+      text-decoration: line-through;
+      color: var(--muted);
+      font-size: 15px;
+      margin-right: 6px;
+    }
+
+    /* Benefits */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .benefit-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 20px;
+    }
+    .benefit-ico {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--green-soft);
+      color: var(--green-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+    .benefit-card h3 {
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+    .benefit-card p {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* Sticky Mobile Bottom Bar */
+    .mobile-sticky {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid var(--line);
+      padding: 10px 16px;
+      z-index: 60;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: 0 -8px 24px rgba(0,0,0,0.06);
+    }
+    .mobile-sticky-info b {
+      display: block;
+      font-size: 15px;
+    }
+    .mobile-sticky-info span {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* Modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 34, 24, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .modal-backdrop.open {
+      display: flex;
+    }
+    .modal-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      max-width: 520px;
+      width: 100%;
+      padding: 28px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.22);
+    }
+    .tg-preview {
+      background: #0F172A;
+      color: #E2E8F0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12px;
+      padding: 14px;
+      border-radius: 12px;
+      margin: 14px 0 18px;
+      white-space: pre-wrap;
+      line-height: 1.45;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .calc-card,
+      .order-wrap {
+        grid-template-columns: 1fr;
+      }
+      .plan-tabs {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .nav-links {
+        display: none;
+      }
+      .sliders-grid,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="demo-bar">
+    <span class="badge">Живое демо</span>
+    <span>Интерактивный прототип лендинга доставки здорового питания: калькулятор КБЖУ, меню Пн–Вс, замена блюд и форма заказа в Telegram</span>
+  </div>
+
+  <header class="header">
+    <div class="container nav">
+      <a href="#top" class="brand">
+        <span class="brand-icon">🥗</span>
+        <span>FRESH<span style="color:var(--green)">BALANCE</span></span>
+      </a>
+      <nav class="nav-links">
+        <a href="#calculator">Калькулятор рациона</a>
+        <a href="#menu">Меню на неделю</a>
+        <a href="#benefits">Как это работает</a>
+        <a href="#order">Оформить заказ</a>
+      </nav>
+      <div class="nav-cta">
+        <a href="#order" class="btn btn-primary" style="padding:9px 18px;font-size:14px;">Подобрать рацион</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-pill">🌿 Готовые рационы на весь день с доставкой к завтраку</div>
+          <h1>Здоровое питание по городу — <em>чисто, аппетитно</em> и без готовки</h1>
+          <p>Готовим ночью из фермерских продуктов, считаем каждую калорию и доставляем к вашей двери каждые 2 дня. Выбирайте цель — остальное сделаем мы.</p>
+          <div class="hero-actions">
+            <a href="#calculator" class="btn btn-primary">Рассчитать свой рацион за 30 сек</a>
+            <a href="#menu" class="btn btn-outline">Смотреть меню на неделю</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-box">
+              <div class="stat-num">5 блюд</div>
+              <div class="stat-label">на каждый день без повторов</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-num">0 г</div>
+              <div class="stat-label">белого сахара и маргарина</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-num">06:00–11:00</div>
+              <div class="stat-label">бесплатная утренняя доставка</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-card-badge">Хит недели · 1 500 ккал</div>
+          <div class="bowl-preview">
+            <svg viewBox="0 0 260 190" width="240" height="175" aria-label="Боул с лососем, авокадо и киноа">
+              <defs>
+                <radialGradient id="plateGrad" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#FFFFFF"/>
+                  <stop offset="100%" stop-color="#E2E8F0"/>
+                </radialGradient>
+                <linearGradient id="salmonGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#FB7185"/>
+                  <stop offset="100%" stop-color="#F97316"/>
+                </linearGradient>
+                <linearGradient id="avoGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#4ADE80"/>
+                  <stop offset="100%" stop-color="#15803D"/>
+                </linearGradient>
+              </defs>
+              <ellipse cx="130" cy="102" rx="104" ry="74" fill="#CBD5E1" opacity="0.35"/>
+              <ellipse cx="130" cy="95" rx="100" ry="72" fill="url(#plateGrad)" stroke="#CBD5E1" stroke-width="3"/>
+              <ellipse cx="130" cy="95" rx="82" ry="56" fill="#F8FAFC"/>
+              <!-- Quinoa base -->
+              <ellipse cx="115" cy="108" rx="46" ry="30" fill="#FDE68A"/>
+              <circle cx="102" cy="104" r="3" fill="#F59E0B"/><circle cx="122" cy="114" r="2.5" fill="#D97706"/><circle cx="114" cy="98" r="2.5" fill="#D97706"/>
+              <!-- Salmon -->
+              <rect x="116" y="56" width="66" height="36" rx="14" transform="rotate(14 149 74)" fill="url(#salmonGrad)"/>
+              <path d="M126 62 Q145 74 162 60 M134 72 Q153 84 170 70" stroke="#FFE4E6" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+              <!-- Avocado slices -->
+              <path d="M65 88 Q82 55 112 72 Q96 98 65 88 Z" fill="url(#avoGrad)"/>
+              <path d="M72 98 Q92 70 118 86 Q102 108 72 98 Z" fill="#22C55E"/>
+              <!-- Cherry tomatoes & greens -->
+              <circle cx="164" cy="112" r="11" fill="#EF4444"/>
+              <circle cx="182" cy="102" r="9" fill="#DC2626"/>
+              <circle cx="150" cy="122" r="8" fill="#16A34A"/>
+              <circle cx="136" cy="124" r="7" fill="#22C55E"/>
+              <!-- Poached egg -->
+              <ellipse cx="96" cy="116" rx="20" ry="15" fill="#FFFFFF" stroke="#E2E8F0"/>
+              <circle cx="96" cy="116" r="9" fill="#FACC15"/>
+            </svg>
+          </div>
+          <div class="hero-dish-title">Боул с норвежским лососем су-вид, киноа и авокадо</div>
+          <div class="hero-dish-sub">Пример обеда из программы Fit 1500 · готовим за 4 часа до выезда курьера</div>
+          <div class="macro-pills">
+            <div class="macro-pill"><b>420</b><span>ккал</span></div>
+            <div class="macro-pill"><b>34 г</b><span>белки</span></div>
+            <div class="macro-pill"><b>18 г</b><span>жиры</span></div>
+            <div class="macro-pill"><b>31 г</b><span>углеводы</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 1: CALCULATOR -->
+    <section id="calculator">
+      <div class="sec-head">
+        <div>
+          <span class="sec-tag">Шаг 1 · Умный подбор</span>
+          <h2 class="sec-title">Калькулятор вашего рациона</h2>
+        </div>
+        <p class="sec-sub">Укажите параметры и цель — алгоритм рассчитает вашу дневную норму КБЖУ и автоматически подберёт программу питания.</p>
+      </div>
+
+      <div class="calc-card">
+        <div>
+          <div class="calc-group">
+            <label class="calc-label">1. Ваша главная цель</label>
+            <div class="seg-row" id="goalButtons">
+              <button type="button" class="seg-btn active" data-goal="loss" onclick="setGoal('loss')">🔥 Похудение</button>
+              <button type="button" class="seg-btn" data-goal="maintain" onclick="setGoal('maintain')">⚖️ Баланс и тонус</button>
+              <button type="button" class="seg-btn" data-goal="gain" onclick="setGoal('gain')">💪 Набор и спорт</button>
+            </div>
+          </div>
+
+          <div class="calc-group">
+            <label class="calc-label">2. Пол и дневная активность</label>
+            <div class="seg-row" style="margin-bottom:10px;">
+              <button type="button" class="seg-btn active" id="genderF" onclick="setGender('f')">👩 Женский</button>
+              <button type="button" class="seg-btn" id="genderM" onclick="setGender('m')">👨 Мужской</button>
+            </div>
+            <div class="seg-row">
+              <button type="button" class="seg-btn" data-act="1.2" onclick="setActivity(1.2)">Сидячая работа</button>
+              <button type="button" class="seg-btn active" data-act="1.375" onclick="setActivity(1.375)">1–3 тренировки</button>
+              <button type="button" class="seg-btn" data-act="1.55" onclick="setActivity(1.55)">Высокая активность</button>
+            </div>
+          </div>
+
+          <div class="sliders-grid">
+            <div class="num-box">
+              <div class="num-box-top"><span>Возраст</span><b id="valAge">29 лет</b></div>
+              <input type="range" id="inpAge" min="18" max="65" value="29" oninput="recalcProfile()" />
+            </div>
+            <div class="num-box">
+              <div class="num-box-top"><span>Рост</span><b id="valHeight">168 см</b></div>
+              <input type="range" id="inpHeight" min="145" max="205" value="168" oninput="recalcProfile()" />
+            </div>
+            <div class="num-box">
+              <div class="num-box-top"><span>Вес</span><b id="valWeight">64 кг</b></div>
+              <input type="range" id="inpWeight" min="42" max="130" value="64" oninput="recalcProfile()" />
+            </div>
+          </div>
+        </div>
+
+        <div class="calc-result">
+          <div>
+            <div class="res-badge">Рекомендованная программа</div>
+            <div class="res-plan-name" id="recPlanTitle">FIT · 1 500 ккал</div>
+            <div class="res-kcal-note" id="recKcalNote">Ваша расчётная норма для цели: ~1 480 ккал / день</div>
+
+            <div class="res-macros">
+              <div class="res-macro-item"><b id="recProt">112 г</b><span>Белки</span></div>
+              <div class="res-macro-item"><b id="recFat">50 г</b><span>Жиры</span></div>
+              <div class="res-macro-item"><b id="recCarb">145 г</b><span>Углеводы</span></div>
+            </div>
+          </div>
+
+          <div>
+            <button type="button" class="btn btn-primary" style="width:100%;" onclick="applyRecommendedPlan()">
+              Показать меню этой программы ↓
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 2: WEEKLY MENU -->
+    <section id="menu">
+      <div class="sec-head">
+        <div>
+          <span class="sec-tag">Шаг 2 · Меню без повторов</span>
+          <h2 class="sec-title">Меню на неделю (Пн – Вс)</h2>
+        </div>
+        <p class="sec-sub">Переключайте калорийность и дни недели. Не любите какой-то ингредиент? Нажмите «Заменить блюдо» прямо в карточке.</p>
+      </div>
+
+      <div class="plan-tabs" id="planTabs">
+        <button type="button" class="plan-tab" data-plan="1200" onclick="selectPlan('1200')">
+          <div class="plan-tab-title"><span>SLIM</span><span>5 блюд</span></div>
+          <div class="plan-tab-kcal">1 200 ккал / день</div>
+          <div class="plan-tab-desc">Быстрое и комфортное снижение веса</div>
+        </button>
+        <button type="button" class="plan-tab active" data-plan="1500" onclick="selectPlan('1500')">
+          <div class="plan-tab-title"><span>FIT</span><span>5 блюд</span></div>
+          <div class="plan-tab-kcal">1 500 ккал / день</div>
+          <div class="plan-tab-desc">Плавное похудение и лёгкость</div>
+        </button>
+        <button type="button" class="plan-tab" data-plan="1800" onclick="selectPlan('1800')">
+          <div class="plan-tab-title"><span>BALANCE</span><span>5 блюд</span></div>
+          <div class="plan-tab-kcal">1 800 ккал / день</div>
+          <div class="plan-tab-desc">Поддержание формы на каждый день</div>
+        </button>
+        <button type="button" class="plan-tab" data-plan="2400" onclick="selectPlan('2400')">
+          <div class="plan-tab-title"><span>SPORT</span><span>6 блюд</span></div>
+          <div class="plan-tab-kcal">2 400 ккал / день</div>
+          <div class="plan-tab-desc">Усиленный белок и энергия для спорта</div>
+        </button>
+      </div>
+
+      <div class="day-tabs" id="dayTabs"></div>
+
+      <div class="day-summary-bar">
+        <div class="day-summary-left">
+          <b id="currentDayLabel">Понедельник · Программа FIT 1 500 ккал</b>
+        </div>
+        <div class="day-totals" id="dayTotalsBar"></div>
+      </div>
+
+      <div class="meals-grid" id="mealsGrid"></div>
+    </section>
+
+    <!-- STEP 3: ORDER FORM & TARIFF CALCULATOR -->
+    <section id="order">
+      <div class="sec-head">
+        <div>
+          <span class="sec-tag">Шаг 3 · Оформление за 1 минуту</span>
+          <h2 class="sec-title">Рассчитайте стоимость и оформите доставку</h2>
+        </div>
+        <p class="sec-sub">Чем длиннее подписка, тем выгоднее стоимость одного дня. Заморозка дней доступна в любой момент через Telegram.</p>
+      </div>
+
+      <form class="order-wrap" onsubmit="submitOrder(event)">
+        <div>
+          <div class="calc-group">
+            <label class="calc-label">1. Длительность рациона</label>
+            <div class="duration-grid" id="durationGrid"></div>
+          </div>
+
+          <div class="calc-group">
+            <label class="calc-label">2. Личные предпочтения (исключить из меню бесплатно)</label>
+            <div class="prefs-row" id="prefsRow">
+              <span class="pref-chip" onclick="togglePref(this, 'Без рыбы и морепродуктов')">🐟 Без рыбы</span>
+              <span class="pref-chip" onclick="togglePref(this, 'Без лактозы')">🥛 Без лактозы</span>
+              <span class="pref-chip" onclick="togglePref(this, 'Без орехов')">🥜 Без орехов</span>
+              <span class="pref-chip" onclick="togglePref(this, 'Без лука и чеснока')">🧅 Без лука</span>
+            </div>
+          </div>
+
+          <div class="calc-group">
+            <label class="calc-label">3. Куда и во сколько доставить первый заказ</label>
+            <div class="form-grid">
+              <input type="text" id="custName" class="input-field" placeholder="Ваше имя *" required />
+              <input type="tel" id="custPhone" class="input-field" placeholder="+7 (___) ___-__-__ *" required />
+            </div>
+            <div class="form-grid">
+              <input type="text" id="custAddress" class="input-field" placeholder="Улица, дом, квартира *" required />
+              <select id="custTime" class="input-field">
+                <option value="06:00 – 08:00">Доставка 06:00 – 08:00</option>
+                <option value="08:00 – 10:00" selected>Доставка 08:00 – 10:00</option>
+                <option value="10:00 – 12:00">Доставка 10:00 – 12:00</option>
+              </select>
+            </div>
+            <div class="form-grid">
+              <input type="text" id="custTg" class="input-field" placeholder="Ваш @username в Telegram (для уведомлений)" />
+              <input type="text" id="custPromo" class="input-field" placeholder="Промокод (попробуйте: START10)" oninput="renderOrderSummary()" />
+            </div>
+          </div>
+        </div>
+
+        <div class="checkout-box">
+          <div>
+            <h3 style="font-size:18px;font-weight:800;margin-bottom:16px;">Ваш заказ</h3>
+            <div class="summary-line"><span>Программа питания:</span><b id="sumPlan">FIT (1 500 ккал)</b></div>
+            <div class="summary-line"><span>Длительность:</span><b id="sumDays">7 дней (Неделя)</b></div>
+            <div class="summary-line"><span>Приёмов пищи в день:</span><b id="sumMealsCount">5 блюд (свежая готовка)</b></div>
+            <div class="summary-line"><span>Стоимость 1 дня:</span><b id="sumPerDay">1 320 ₽ / день</b></div>
+            <div class="summary-line"><span>Утренняя доставка по городу:</span><b style="color:var(--green-dark)">0 ₽ (Бесплатно)</b></div>
+            <div class="summary-line" id="sumDiscountRow"><span>Ваша выгода за период:</span><b style="color:var(--amber)" id="sumDiscountVal">-490 ₽</b></div>
+
+            <div class="summary-total">
+              <div>
+                <div style="font-size:12px;color:var(--muted);">Итого к оплате</div>
+                <div>
+                  <span class="old-price" id="sumOldTotal">9 730 ₽</span>
+                  <span class="total-price" id="sumFinalTotal">9 240 ₽</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:20px;">
+            <button type="submit" class="btn btn-primary" style="width:100%;font-size:16px;padding:15px;">
+              Оформить доставку рациона →
+            </button>
+            <p style="font-size:11px;color:var(--muted);text-align:center;margin-top:10px;">
+              Оплата картой, СБП или курьеру при получении первого набора
+            </p>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <!-- BENEFITS -->
+    <section id="benefits">
+      <div class="sec-head">
+        <div>
+          <span class="sec-tag">Почему выбирают нас</span>
+          <h2 class="sec-title">Чистый состав и ресторанная подача</h2>
+        </div>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-ico">🥩</div>
+          <h3>Технология Су-вид</h3>
+          <p>Готовим мясо и рыбу в вакууме при низкой температуре — грудка и лосось остаются сочными без капли лишнего масла.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-ico">📦</div>
+          <h3>Герметичные эко-контейнеры</h3>
+          <p>Контейнеры можно греть в микроволновке. На каждой крышке — маркировка приёма пищи и точное КБЖУ.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-ico">🔄</div>
+          <h3>Бесплатная замена блюд</h3>
+          <p>Не едите рыбу, творог или брокколи? Замените любое блюдо на сайте в 1 клик перед оформлением.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-ico">📲</div>
+          <h3>Управление через Telegram</h3>
+          <p>Перенос доставки, заморозка дней на время отпуска и уведомления от курьера приходят прямо в ваш Telegram.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Sticky Mobile Bar -->
+  <div class="mobile-sticky">
+    <div class="mobile-sticky-info">
+      <b id="mobBarTitle">FIT · 1 500 ккал</b>
+      <span id="mobBarPrice">от 1 180 ₽ / день · бесплатная доставка</span>
+    </div>
+    <a href="#order" class="btn btn-primary" style="padding:10px 18px;font-size:14px;">Заказать</a>
+  </div>
+
+  <!-- Order Confirmation Modal (shows how owner receives lead in Telegram) -->
+  <div class="modal-backdrop" id="orderModal">
+    <div class="modal-card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+        <span style="background:var(--green-soft);color:var(--green-dark);font-weight:800;font-size:12px;padding:4px 10px;border-radius:99px;">✓ Заявка успешно отправлена</span>
+        <button type="button" onclick="closeModal()" style="border:none;background:none;font-size:20px;cursor:pointer;">✕</button>
+      </div>
+      <h3 style="font-size:22px;font-weight:850;margin-bottom:6px;">Спасибо! Ваш рацион принят в работу</h3>
+      <p style="font-size:13px;color:var(--muted);">Так видит подтверждение ваш клиент, а ниже — <b>мгновенное уведомление, которое в эту же секунду приходит вам (владельцу доставки) в Telegram-бот:</b></p>
+      <div class="tg-preview" id="tgPreviewBox"></div>
+      <button type="button" class="btn btn-primary" style="width:100%;" onclick="closeModal()">Отлично, всё понятно!</button>
+    </div>
+  </div>
+
+  <script>
+    const PLANS = {
+      "1200": { name: "SLIM", kcal: 1200, basePrice: 1290, mealsCount: "5 блюд", mult: 0.82 },
+      "1500": { name: "FIT", kcal: 1500, basePrice: 1390, mealsCount: "5 блюд", mult: 1.0 },
+      "1800": { name: "BALANCE", kcal: 1800, basePrice: 1520, mealsCount: "5 блюд", mult: 1.2 },
+      "2400": { name: "SPORT", kcal: 2400, basePrice: 1790, mealsCount: "6 блюд", mult: 1.58 }
+    };
+
+    const DURATIONS = [
+      { id: "d2", days: 2, title: "2 дня", sub: "Пробный сет", discount: 0 },
+      { id: "d5", days: 5, title: "5 дней", sub: "Рабочая неделя", discount: 0.03 },
+      { id: "d7", days: 7, title: "7 дней", sub: "Полная неделя", discount: 0.05, badge: "-5%" },
+      { id: "d14", days: 14, title: "14 дней", sub: "Две недели", discount: 0.10, badge: "-10%" },
+      { id: "d30", days: 30, title: "30 дней", sub: "Месяц под ключ", discount: 0.15, badge: "Хит -15%" }
+    ];
+
+    const DAYS = [
+      { code: "mon", short: "Пн", full: "Понедельник" },
+      { code: "tue", short: "Вт", full: "Вторник" },
+      { code: "wed", short: "Ср", full: "Среда" },
+      { code: "thu", short: "Чт", full: "Четверг" },
+      { code: "fri", short: "Пт", full: "Пятница" },
+      { code: "sat", short: "Сб", full: "Суббота" },
+      { code: "sun", short: "Вс", full: "Воскресенье" }
+    ];
+
+    const WEEKLY_MENU = {
+      mon: [
+        { slot: "Завтрак", title: "Сырники из рикотты с ягодным конфитюром без сахара", ing: "Рикотта, фермерский творог 5%, мука зелёной гречки, малина, эритрит", weight: 210, kcal: 310, p: 22, f: 11, c: 30, tag: "Без сахара", icon: "🥞" },
+        { slot: "2-й завтрак", title: "Круассан цельнозерновой с лососем и творожным муссом", ing: "Зерновой мини-круассан, слабосолёный лосось, крем-чиз, руккола", weight: 150, kcal: 240, p: 16, f: 11, c: 19, tag: "Омега-3", icon: "🥐" },
+        { slot: "Обед", title: "Боул с лососем су-вид, киноа, авокадо и черри", ing: "Филе лосося, трёхцветная киноа, спелый авокадо, бобы эдамаме, кунжутный дрессинг", weight: 320, kcal: 420, p: 34, f: 18, c: 31, tag: "Су-вид", icon: "🥗" },
+        { slot: "Полдник", title: "Чиа-пудинг на кокосовом молоке со спелым манго", ing: "Семена чиа, кокосовое молоко, пюре манго Альфонсо, лепестки миндаля", weight: 170, kcal: 190, p: 6, f: 9, c: 21, tag: "Суперфуд", icon: "🥭" },
+        { slot: "Ужин", title: "Филе индейки в травах с молодым цукини на гриле", ing: "Грудка индейки су-вид, цукини, болгарский перец, соус песто из базилика", weight: 280, kcal: 340, p: 38, f: 11, c: 22, tag: "Много белка", icon: "🍗" }
+      ],
+      tue: [
+        { slot: "Завтрак", title: "Белковый омлет скрэмбл со страчателлой и томатами", ing: "Яйца фермерские, сыр страчателла, томаты черри, цельнозерновой тост", weight: 220, kcal: 305, p: 24, f: 14, c: 20, tag: "Фермерское", icon: "🍳" },
+        { slot: "2-й завтрак", title: "Творожная запеканка с грушей и корицей", ing: "Творог 5%, печёная груша Конференция, изолят сывороточного белка, корица", weight: 165, kcal: 225, p: 19, f: 7, c: 21, tag: "Фитнес-десерт", icon: "🍐" },
+        { slot: "Обед", title: "Медальоны из телятины с булгуром и белыми грибами", ing: "Вырезка телятины, булгур с травами, соус из лесных белых грибов", weight: 310, kcal: 435, p: 36, f: 14, c: 41, tag: "Су-вид", icon: "🥩" },
+        { slot: "Полдник", title: "Салат с тигровыми креветками, грейпфрутом и миксом", ing: "Тигровые креветки, филе розового грейпфрута, микс салатов, кедровый орех", weight: 185, kcal: 195, p: 18, f: 8, c: 13, tag: "Лёгкость", icon: "🍤" },
+        { slot: "Ужин", title: "Филе белой трески под пармезаном со спаржей", ing: "Мурманская треска, зелёная спаржа, брокколи на пару, лимонный соус", weight: 275, kcal: 340, p: 37, f: 11, c: 23, tag: "Низкий ГИ", icon: "🐟" }
+      ],
+      wed: [
+        { slot: "Завтрак", title: "Овсяноблин с творожным сыром, авокадо и индейкой", ing: "Овсяные хлопья долгой варки, яйцо, ветчина из индейки, творожный сыр", weight: 215, kcal: 320, p: 23, f: 12, c: 30, tag: "Сложные угли", icon: "🥞" },
+        { slot: "2-й завтрак", title: "Панна-котта на греческом йогурте с клубникой", ing: "Греческий йогурт 2%, пюре садовой клубники, семена льна", weight: 160, kcal: 210, p: 14, f: 6, c: 25, tag: "Без сахара", icon: "🍓" },
+        { slot: "Обед", title: "Куриное филе терияки с диким рисом и брокколи", ing: "Куриная грудка су-вид, смесь бурого и дикого риса, брокколи, кунжут", weight: 320, kcal: 430, p: 38, f: 11, c: 44, tag: "Хит", icon: "🍚" },
+        { slot: "Полдник", title: "Ролл в тонком лаваше с тунцом и свежим огурцом", ing: "Филе тунца в собственном соку, цельнозерновой ролл, айсберг, йогуртовый соус", weight: 175, kcal: 215, p: 20, f: 6, c: 20, tag: "Много белка", icon: "🌯" },
+        { slot: "Ужин", title: "Томлёные тефтели из кролика с пюре из цветной капусты", ing: "Филе кролика, воздушное пюре из цветной капусты с трюфельным маслом", weight: 270, kcal: 325, p: 33, f: 12, c: 21, tag: "Диетическое", icon: "🍽️" }
+      ],
+      thu: [
+        { slot: "Завтрак", title: "Вафли из кабачка и шпината с яйцом пашот и форелью", ing: "Шпинатные вафли без муки, форель с/с, яйцо пашот, голландский йогурт-соус", weight: 220, kcal: 315, p: 24, f: 14, c: 23, tag: "Кето-френдли", icon: "🧇" },
+        { slot: "2-й завтрак", title: "Запечённое яблоко с рикоттой, грецким орехом и мёдом", ing: "Зелёное яблоко Симиренко, рикотта, дробленый грецкий орех", weight: 180, kcal: 220, p: 9, f: 9, c: 26, tag: "Клетчатка", icon: "🍏" },
+        { slot: "Обед", title: "Паста из твёрдых сортов с морепродуктами в томатном соусе", ing: "Цельнозерновые пенне, кальмар, мидии, креветки, томаты пилати, базилик", weight: 315, kcal: 425, p: 32, f: 10, c: 51, tag: "Средиземноморье", icon: "🍝" },
+        { slot: "Полдник", title: "Протеиновый брауни из батата и какао без муки", ing: "Запечённый батат, какао-бобы, протеин, фундук", weight: 140, kcal: 205, p: 14, f: 8, c: 19, tag: "Без глютена", icon: "🍫" },
+        { slot: "Ужин", title: "Стейк из индейки с тёплым салатом из печёной тыквы и феты", ing: "Индейка на гриле, мускатная тыква, рассольная фета, тыквенные семечки", weight: 280, kcal: 335, p: 35, f: 13, c: 19, tag: "Су-вид", icon: "🥗" }
+      ],
+      fri: [
+        { slot: "Завтрак", title: "Каша из киноа на миндальном молоке с голубикой", ing: "Белая киноа, миндальное молоко без сахара, свежая голубика, миндаль", weight: 230, kcal: 300, p: 14, f: 11, c: 36, tag: "Веган-опция", icon: "🫐" },
+        { slot: "2-й завтрак", title: "Брускетта на гречишном хлебе с ростбифом и вялеными томатами", ing: "Гречишный хлеб на закваске, домашний ростбиф, крем-чиз, руккола", weight: 155, kcal: 235, p: 19, f: 9, c: 20, tag: "Много белка", icon: "🥪" },
+        { slot: "Обед", title: "Филе дорадо на гриле с кускусом и овощами рататуй", ing: "Филе дорадо, кускус с мятой и лимоном, баклажан, цукини, томаты", weight: 310, kcal: 415, p: 34, f: 13, c: 40, tag: "Омега-3", icon: "🐟" },
+        { slot: "Полдник", title: "Мусс из творога и маракуйи с семенами чиа", ing: "Мягкий творог 4%, натуральное пюре маракуйи, чиа", weight: 165, kcal: 195, p: 16, f: 6, c: 19, tag: "Витамин С", icon: "🍮" },
+        { slot: "Ужин", title: "Куриные митболы в сливочно-шпинатном соусе с гречкой", ing: "Митболы из филе цыплёнка, зелёная гречка, молодой шпинат, сливки 10%", weight: 285, kcal: 355, p: 36, f: 11, c: 28, tag: "Сытно", icon: "🍲" }
+      ],
+      sat: [
+        { slot: "Завтрак", title: "Шакшука с томатами, сладким перцем и сыром фета", ing: "Два фермерских яйца, густой соус из печёных томатов и паприки, фета, пита", weight: 240, kcal: 310, p: 21, f: 14, c: 25, tag: "Уикенд-меню", icon: "🍳" },
+        { slot: "2-й завтрак", title: "Морковный ПП-кейк с кремом из рикотты и пеканом", ing: "Морковь, овсяная мука, рикотта, орех пекан, мускатный орех", weight: 150, kcal: 230, p: 13, f: 10, c: 22, tag: "Без сахара", icon: "🥕" },
+        { slot: "Обед", title: "Поке с тунцом, бурым рисом, манго и чукой", ing: "Стейк тунца, бурый рис, манго, водоросли чука, огурец, соус понзу", weight: 325, kcal: 425, p: 35, f: 11, c: 46, tag: "Суперхит", icon: "🥣" },
+        { slot: "Полдник", title: "Хумус из нута с палочками сельдерея, моркови и паприки", ing: "Домашний хумус с кунжутной пастой тхина, свежие хрустящие овощи", weight: 180, kcal: 195, p: 8, f: 9, c: 20, tag: "Клетчатка", icon: "🥕" },
+        { slot: "Ужин", title: "Филе сибаса на пару с зелёной фасолью и киноа", ing: "Сибас, стручковая фасоль, красная киноа, соус из трав", weight: 275, kcal: 340, p: 35, f: 12, c: 23, tag: "Лёгкий ужин", icon: "🐟" }
+      ],
+      sun: [
+        { slot: "Завтрак", title: "Блинчики из зелёной гречки с индейкой и моцареллой", ing: "Мука зелёной гречки, пастрами из индейки, рассольная моцарелла, зелень", weight: 215, kcal: 315, p: 25, f: 12, c: 27, tag: "Без глютена", icon: "🥞" },
+        { slot: "2-й завтрак", title: "Чизкейк Нью-Йорк Fit на творожной основе с черникой", ing: "Лёгкий творожный сыр, белок, овсяно-миндальная основа, лесная черника", weight: 150, kcal: 220, p: 16, f: 8, c: 21, tag: "Без сахара", icon: "🫐" },
+        { slot: "Обед", title: "Говядина по-строгановски су-вид с гречкой и вешенками", ing: "Постная говяжья вырезка, грибы вешенки, йогуртово-горчичный соус, гречка", weight: 320, kcal: 430, p: 37, f: 13, c: 41, tag: "Су-вид", icon: "🥩" },
+        { slot: "Полдник", title: "Салат Капрезе с мини-моцареллой, томатами и песто", ing: "Шарики моцареллы лайт, сладкие черри, домашний песто, руккола", weight: 175, kcal: 200, p: 15, f: 11, c: 10, tag: "Италия", icon: "🍅" },
+        { slot: "Ужин", title: "Котлеты из щуки и судака с запечённым корнем сельдерея", ing: "Филе речной щуки и судака, пюре из печёного сельдерея и яблока, шпинат", weight: 275, kcal: 335, p: 34, f: 10, c: 26, tag: "Много белка", icon: "🍽️" }
+      ]
+    };
+
+    const ALT_DISHES = [
+      { title: "Цезарь Fit с грудкой су-вид, перепелиным яйцом и пармезаном", ing: "Филе цыплёнка су-вид, романо, черри, пармезан, заправка на греческом йогурте", kcal: 315, p: 32, f: 12, c: 19, tag: "Замена блюд", icon: "🥗" },
+      { title: "Лазанья из цукини с индейкой болоньезе и рикоттой", ing: "Слайсы цукини вместо теста, фарш из грудки индейки, томаты, рикотта", kcal: 340, p: 34, f: 13, c: 21, tag: "Низкоуглеводное", icon: "🍲" },
+      { title: "Смузи-боул с протеином, бананом, малиной и гранолой", ing: "Малина, банан, сывороточный изолят, домашняя запечённая гранола без сахара", kcal: 265, p: 21, f: 7, c: 29, tag: "Свежая замена", icon: "🍓" }
+    ];
+
+    let state = {
+      goal: "loss",
+      gender: "f",
+      activity: 1.375,
+      recommendedPlan: "1500",
+      selectedPlan: "1500",
+      selectedDay: "mon",
+      selectedDuration: "d7",
+      prefs: [],
+      swaps: {}
+    };
+
+    function setGoal(g) {
+      state.goal = g;
+      document.querySelectorAll("#goalButtons .seg-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.goal === g);
+      });
+      recalcProfile();
+    }
+
+    function setGender(gen) {
+      state.gender = gen;
+      document.getElementById("genderF").classList.toggle("active", gen === "f");
+      document.getElementById("genderM").classList.toggle("active", gen === "m");
+      recalcProfile();
+    }
+
+    function setActivity(act) {
+      state.activity = act;
+      document.querySelectorAll("[data-act]").forEach(btn => {
+        btn.classList.toggle("active", parseFloat(btn.dataset.act) === act);
+      });
+      recalcProfile();
+    }
+
+    function recalcProfile() {
+      const age = parseInt(document.getElementById("inpAge").value, 10);
+      const height = parseInt(document.getElementById("inpHeight").value, 10);
+      const weight = parseInt(document.getElementById("inpWeight").value, 10);
+
+      document.getElementById("valAge").textContent = age + " лет";
+      document.getElementById("valHeight").textContent = height + " см";
+      document.getElementById("valWeight").textContent = weight + " кг";
+
+      const s = state.gender === "m" ? 5 : -161;
+      const bmr = 10 * weight + 6.25 * height - 5 * age + s;
+      let tdee = bmr * state.activity;
+
+      if (state.goal === "loss") tdee *= 0.82;
+      if (state.goal === "gain") tdee *= 1.15;
+
+      const targetKcal = Math.round(tdee / 10) * 10;
+
+      let planKey = "1500";
+      if (targetKcal < 1350) planKey = "1200";
+      else if (targetKcal < 1680) planKey = "1500";
+      else if (targetKcal < 2100) planKey = "1800";
+      else planKey = "2400";
+
+      state.recommendedPlan = planKey;
+      const plan = PLANS[planKey];
+
+      const pG = Math.round((plan.kcal * 0.30) / 4);
+      const fG = Math.round((plan.kcal * 0.30) / 9);
+      const cG = Math.round((plan.kcal * 0.40) / 4);
+
+      document.getElementById("recPlanTitle").textContent = `${plan.name} · ${plan.kcal.toLocaleString("ru-RU")} ккал`;
+      document.getElementById("recKcalNote").textContent = `Ваша расчётная норма под цель: ~${targetKcal.toLocaleString("ru-RU")} ккал / день`;
+      document.getElementById("recProt").textContent = `${pG} г`;
+      document.getElementById("recFat").textContent = `${fG} г`;
+      document.getElementById("recCarb").textContent = `${cG} г`;
+    }
+
+    function applyRecommendedPlan() {
+      selectPlan(state.recommendedPlan);
+      document.getElementById("menu").scrollIntoView({ behavior: "smooth" });
+    }
+
+    function selectPlan(planKey) {
+      state.selectedPlan = planKey;
+      document.querySelectorAll("#planTabs .plan-tab").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.plan === planKey);
+      });
+      renderMenu();
+      renderOrderSummary();
+    }
+
+    function selectDay(dayCode) {
+      state.selectedDay = dayCode;
+      renderDayTabs();
+      renderMenu();
+    }
+
+    function renderDayTabs() {
+      const wrap = document.getElementById("dayTabs");
+      wrap.innerHTML = DAYS.map(d => `
+        <button type="button" class="day-btn ${state.selectedDay === d.code ? 'active' : ''}" onclick="selectDay('${d.code}')">
+          <b>${d.short}</b>
+          <span>${d.full}</span>
+        </button>
+      `).join("");
+    }
+
+    function swapDish(idx) {
+      const key = `${state.selectedDay}_${idx}`;
+      const cur = state.swaps[key] || 0;
+      state.swaps[key] = (cur + 1) % (ALT_DISHES.length + 1);
+      renderMenu();
+    }
+
+    function renderMenu() {
+      const plan = PLANS[state.selectedPlan];
+      const dayObj = DAYS.find(d => d.code === state.selectedDay);
+      const baseMeals = WEEKLY_MENU[state.selectedDay] || WEEKLY_MENU.mon;
+
+      let meals = baseMeals.map((m, idx) => {
+        const swapIdx = state.swaps[`${state.selectedDay}_${idx}`] || 0;
+        const src = swapIdx > 0 ? { ...m, ...ALT_DISHES[swapIdx - 1] } : m;
+        return {
+          ...src,
+          weight: Math.round(src.weight * plan.mult),
+          kcal: Math.round(src.kcal * plan.mult),
+          p: Math.round(src.p * plan.mult),
+          f: Math.round(src.f * plan.mult),
+          c: Math.round(src.c * plan.mult)
+        };
+      });
+
+      const totKcal = meals.reduce((a, b) => a + b.kcal, 0);
+      const totP = meals.reduce((a, b) => a + b.p, 0);
+      const totF = meals.reduce((a, b) => a + b.f, 0);
+      const totC = meals.reduce((a, b) => a + b.c, 0);
+
+      document.getElementById("currentDayLabel").textContent =
+        `${dayObj.full} · Программа ${plan.name} (${plan.kcal.toLocaleString("ru-RU")} ккал)`;
+
+      document.getElementById("dayTotalsBar").innerHTML = `
+        <span>Итого за день: <strong>${totKcal} ккал</strong></span>
+        <span>Белки: <strong>${totP} г</strong></span>
+        <span>Жиры: <strong>${totF} г</strong></span>
+        <span>Углеводы: <strong>${totC} г</strong></span>
+      `;
+
+      document.getElementById("mealsGrid").innerHTML = meals.map((m, idx) => `
+        <article class="meal-card">
+          <div>
+            <div class="meal-top">
+              <span class="meal-slot">${m.slot}</span>
+              <span class="meal-weight">${m.weight} г</span>
+            </div>
+            <div class="meal-illust">
+              <span style="font-size:48px;">${m.icon}</span>
+              <span class="meal-tag">${m.tag}</span>
+            </div>
+            <h3 class="meal-title">${m.title}</h3>
+            <p class="meal-ing">${m.ing}</p>
+          </div>
+          <div>
+            <div class="meal-kbju">
+              <div><b>${m.kcal}</b><span>ккал</span></div>
+              <div><b>${m.p} г</b><span>Б</span></div>
+              <div><b>${m.f} г</b><span>Ж</span></div>
+              <div><b>${m.c} г</b><span>У</span></div>
+            </div>
+            <button type="button" class="swap-btn" onclick="swapDish(${idx})">
+              🔄 Заменить блюдо в 1 клик
+            </button>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function renderDurations() {
+      const wrap = document.getElementById("durationGrid");
+      wrap.innerHTML = DURATIONS.map(d => `
+        <div class="dur-card ${state.selectedDuration === d.id ? 'active' : ''}" onclick="selectDuration('${d.id}')">
+          ${d.badge ? `<span class="dur-save">${d.badge}</span>` : ''}
+          <div class="dur-days">${d.title}</div>
+          <div class="dur-note">${d.sub}</div>
+        </div>
+      `).join("");
+    }
+
+    function selectDuration(id) {
+      state.selectedDuration = id;
+      renderDurations();
+      renderOrderSummary();
+    }
+
+    function togglePref(el, label) {
+      el.classList.toggle("active");
+      if (state.prefs.includes(label)) {
+        state.prefs = state.prefs.filter(x => x !== label);
+      } else {
+        state.prefs.push(label);
+      }
+    }
+
+    function renderOrderSummary() {
+      const plan = PLANS[state.selectedPlan];
+      const dur = DURATIONS.find(d => d.id === state.selectedDuration);
+      const promo = (document.getElementById("custPromo").value || "").trim().toUpperCase();
+      const promoExtra = promo === "START10" ? 0.10 : 0;
+
+      const totalDiscountRate = Math.min(0.25, dur.discount + promoExtra);
+      const rawTotal = plan.basePrice * dur.days;
+      const perDayDiscounted = Math.round(plan.basePrice * (1 - totalDiscountRate));
+      const finalTotal = perDayDiscounted * dur.days;
+      const saved = rawTotal - finalTotal;
+
+      document.getElementById("sumPlan").textContent = `${plan.name} (${plan.kcal.toLocaleString("ru-RU")} ккал)`;
+      document.getElementById("sumDays").textContent = `${dur.title} (${dur.sub})`;
+      document.getElementById("sumMealsCount").textContent = `${plan.mealsCount} (свежая ночная готовка)`;
+      document.getElementById("sumPerDay").textContent = `${perDayDiscounted.toLocaleString("ru-RU")} ₽ / день`;
+      document.getElementById("sumDiscountVal").textContent = saved > 0 ? `-${saved.toLocaleString("ru-RU")} ₽` : "0 ₽";
+      document.getElementById("sumOldTotal").style.display = saved > 0 ? "inline" : "none";
+      document.getElementById("sumOldTotal").textContent = `${rawTotal.toLocaleString("ru-RU")} ₽`;
+      document.getElementById("sumFinalTotal").textContent = `${finalTotal.toLocaleString("ru-RU")} ₽`;
+
+      document.getElementById("mobBarTitle").textContent = `${plan.name} · ${plan.kcal.toLocaleString("ru-RU")} ккал`;
+      document.getElementById("mobBarPrice").textContent = `${perDayDiscounted.toLocaleString("ru-RU")} ₽/день · Итого ${finalTotal.toLocaleString("ru-RU")} ₽`;
+    }
+
+    function submitOrder(e) {
+      e.preventDefault();
+      const plan = PLANS[state.selectedPlan];
+      const dur = DURATIONS.find(d => d.id === state.selectedDuration);
+      const name = document.getElementById("custName").value.trim();
+      const phone = document.getElementById("custPhone").value.trim();
+      const addr = document.getElementById("custAddress").value.trim();
+      const time = document.getElementById("custTime").value;
+      const tg = document.getElementById("custTg").value.trim() || "не указан";
+      const total = document.getElementById("sumFinalTotal").textContent;
+      const prefs = state.prefs.length ? state.prefs.join(", ") : "Стандартное меню без исключений";
+
+      const msg = [
+        "🥗 НОВЫЙ ЗАКАЗ С САЙТА FRESH BALANCE",
+        "──────────────────────────",
+        `👤 Клиент: ${name}`,
+        `📞 Телефон: ${phone}`,
+        `✈️ Telegram: ${tg}`,
+        `📍 Адрес: ${addr}`,
+        `⏰ Интервал доставки: ${time}`,
+        "──────────────────────────",
+        `🍱 Программа: ${plan.name} (${plan.kcal} ккал / день)`,
+        `📅 Длительность: ${dur.title} (${dur.sub})`,
+        `⚠️ Исключения: ${prefs}`,
+        `💳 Сумма к оплате: ${total}`
+      ].join("\n");
+
+      document.getElementById("tgPreviewBox").textContent = msg;
+      document.getElementById("orderModal").classList.add("open");
+    }
+
+    function closeModal() {
+      document.getElementById("orderModal").classList.remove("open");
+    }
+
+    // Init
+    renderDayTabs();
+    renderDurations();
+    recalcProfile();
+    renderMenu();
+    renderOrderSummary();
+  </script>
+</body>
+</html>
